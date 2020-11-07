@@ -1,5 +1,6 @@
 set term png enhanced giant size 1980, 1080
-set output 'graph.png'
+set output 'graph2.png'
 set ylabel "average access time(ns)"
 set xlabel "number of pages accessed"
-plot '2**.dat' with lines
+set logscale x 2
+plot 'output.dat' with lines
