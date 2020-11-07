@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
     int* data = (int*) calloc(NUMPAGES * PAGESIZE / sizeof(int), sizeof(int));
     srand(time(NULL));
     for(int i = 0; i < NUMPAGES * PAGESIZE / sizeof(int); i++) {
-        data[i] = (rand() % (1000 - -1000 + 1)) + -1000; 
+        data[i] = (rand() % (1000 - -1000 + 1)) + -1000;
     }
     int total = 0;
     start = std::chrono::steady_clock::now();
@@ -34,6 +34,7 @@ int main(int argc, char *argv[]) {
     std::cerr << total << std::endl;
     std::chrono::nanoseconds total_time = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
     std::cout << NUMPAGES << "\t" << total_time.count()  / REPETITIONS << "ns" << std::endl;
+    free(data);
     return 0;
 }
 
